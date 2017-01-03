@@ -10,7 +10,7 @@ export interface Routes {
   [route: string]: Action
 }
 
-export abstract class Router {
+export abstract class UrlDispatcher {
   abstract routes: Routes
 
   baseUrl = ''

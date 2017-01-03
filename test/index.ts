@@ -2,10 +2,10 @@
 
 import test       from 'ava'
 import { spy }    from 'sinon'
-import { Router } from '../lib'
+import { UrlDispatcher } from '../lib'
 
 test('call action if matched route', t => {
-  const router = new class extends Router {
+  const dispatcher = new class extends UrlDispatcher {
     homeAction = spy()
 
     home2Action = spy()
@@ -16,19 +16,19 @@ test('call action if matched route', t => {
     }
   }
 
-  router.dispatch('/home')
+  dispatcher.dispatch('/home')
 
   // match route
-  t.true(router.homeAction.called)
+  t.true(dispatcher.homeAction.called)
 
   // unmatch route
-  t.true(router.home2Action.notCalled)
+  t.true(dispatcher.home2Action.notCalled)
 
-  t.true(router['_paramsMap'].size === 0)
+  t.true(dispatcher['_paramsMap'].size === 0)
 })
 
 test('named params', t => {
-  const router = new class extends Router {
+  const dispatcher = new class extends UrlDispatcher {
     userAction = spy()
 
     userMessageAction = spy()
@@ -39,31 +39,31 @@ test('named params', t => {
     }
   }
 
-  router.dispatch('/users/100')
+  dispatcher.dispatch('/users/100')
 
-  t.true(router.userAction.called)
-  t.true(router.userMessageAction.notCalled)
+  t.true(dispatcher.userAction.called)
+  t.true(dispatcher.userMessageAction.notCalled)
 
-  t.true(router.params('userId') === '100')
+  t.true(dispatcher.params('userId') === '100')
 
-  t.true(router['_paramsMap'].size === 1)
+  t.true(dispatcher['_paramsMap'].size === 1)
 
-  router.userAction.reset()
-  router.userMessageAction.reset()
+  dispatcher.userAction.reset()
+  dispatcher.userMessageAction.reset()
 
-  router.dispatch('/users/1000/messages/1')
+  dispatcher.dispatch('/users/1000/messages/1')
 
-  t.true(router.userAction.notCalled)
-  t.true(router.userMessageAction.called)
+  t.true(dispatcher.userAction.notCalled)
+  t.true(dispatcher.userMessageAction.called)
 
-  t.true(router.params('userId') === '1000')
-  t.true(router.params('messageId') === '1')
+  t.true(dispatcher.params('userId') === '1000')
+  t.true(dispatcher.params('messageId') === '1')
 
-  t.true(router['_paramsMap'].size === 2)
+  t.true(dispatcher['_paramsMap'].size === 2)
 })
 
 test('dispatch result should return Promise', t => {
-  const router = new class extends Router {
+  const dispatcher = new class extends UrlDispatcher {
     homeAction = spy()
 
     routes = {
@@ -73,13 +73,13 @@ test('dispatch result should return Promise', t => {
 
   return Promise.all([
     // matched
-    router.dispatch('/home').then(
+    dispatcher.dispatch('/home').then(
       () => t.pass(),
       () => t.fail()
     ),
 
     // unmatched
-    router.dispatch('/404').then(
+    dispatcher.dispatch('/404').then(
       () => t.fail(),
       () => t.pass()
     )

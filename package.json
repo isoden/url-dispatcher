@@ -1,7 +1,7 @@
 {
-  "name": "@isoden/router",
-  "version": "1.0.1",
-  "description": "minimal router for client side.",
+  "name": "@isoden/url-dispatcher",
+  "version": "1.0.0",
+  "description": "minimal url dispatcher for client side.",
   "main": "./lib/index.js",
   "scripts": {
     "start": "tsc --watch",
@@ -26,10 +26,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/isoden/router.git"
+    "url": "git+https://github.com/isoden/url-dispatcher.git"
   },
   "bugs": {
-    "url": "https://github.com/isoden/router/issues"
+    "url": "https://github.com/isoden/url-dispatcher/issues"
   },
-  "homepage": "https://github.com/isoden/router#readme"
+  "homepage": "https://github.com/isoden/url-dispatcher#readme"
 }

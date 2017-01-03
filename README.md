@@ -1,22 +1,22 @@
-# @isoden/router
+# @isoden/url-dispatcher
 
-minimal router for client side.
+minimal url dispatcher for client side.
 
 ---
 
 ## Installation
 
 ```
-$ npm install @isoden/router --save
+$ npm install @isoden/url-dispatcher --save
 ```
 
 ## Usage
 
 ```ts
 // routing.ts
-import { Router } from '@isoden/router'
+import { UrlDispatcher } from '@isoden/url-dispatcher'
 
-export class AppRouter extends Router {
+export class Dispatcher extends UrlDispatcher {
   routes = {
     '/'             : this.indexAction.bind(this),
     '/about'        : this.aboutAction.bind(this),
@@ -43,16 +43,16 @@ export class AppRouter extends Router {
 ```ts
 // main.ts
 
-import { AppRouter } from './routing'
+import { Dispatcher } from './routing'
 
-const router = new AppRouter()
+const dispatcher = new Dispatcher()
 
-router.dispatch('/').then(() => {
+Dispatcher.dispatch('/').then(() => {
   // matched routing
-  // called AppRouter#indexAction
+  // called Dispatcher#indexAction
 })
 
-router.dispatch('/404').catch(() => {
+Dispatcher.dispatch('/404').catch(() => {
   // unmatched routing
 })
 
