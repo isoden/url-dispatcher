@@ -13,7 +13,7 @@ $ npm install @isoden/url-dispatcher --save
 ## Usage
 
 ```ts
-// routing.ts
+// dispatcher.ts
 import { UrlDispatcher } from '@isoden/url-dispatcher'
 
 export class Dispatcher extends UrlDispatcher {
@@ -43,16 +43,16 @@ export class Dispatcher extends UrlDispatcher {
 ```ts
 // main.ts
 
-import { Dispatcher } from './routing'
+import { Dispatcher } from './dispatcher'
 
 const dispatcher = new Dispatcher()
 
-Dispatcher.dispatch('/').then(() => {
+dispatcher.dispatch('/').then(() => {
   // matched routing
   // called Dispatcher#indexAction
 })
 
-Dispatcher.dispatch('/404').catch(() => {
+dispatcher.dispatch('/404').catch(() => {
   // unmatched routing
 })
 
