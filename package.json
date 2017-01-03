@@ -1,0 +1,35 @@
+{
+  "name": "@isoden/router",
+  "version": "1.0.0",
+  "description": "minimal router for client side.",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc --watch",
+    "test": "ava test/",
+    "test:watch": "npm test -- --watch"
+  },
+  "keywords": [],
+  "author": "isoden <isoda@maboroshi.biz> (http://isoden.me)",
+  "license": "MIT",
+  "dependencies": {
+    "@isoden/tsconfig": "^1.1.0",
+    "typescript": "^2.1.4"
+  },
+  "devDependencies": {
+    "@types/sinon": "^1.16.34",
+    "ava": "^0.17.0",
+    "sinon": "^1.17.7"
+  },
+  "typings": "./lib/index.d.ts",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isoden/router.git"
+  },
+  "bugs": {
+    "url": "https://github.com/isoden/router/issues"
+  },
+  "homepage": "https://github.com/isoden/router#readme"
+}
