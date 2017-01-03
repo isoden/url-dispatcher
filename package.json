@@ -6,7 +6,8 @@
   "scripts": {
     "start": "tsc --watch",
     "test": "nyc --reporter=text ava test/",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [],
   "author": "isoden <isoda@maboroshi.biz> (http://isoden.me)",
@@ -18,6 +19,7 @@
   "devDependencies": {
     "@types/sinon": "^1.16.34",
     "ava": "^0.17.0",
+    "coveralls": "^2.11.15",
     "nyc": "^10.0.0",
     "sinon": "^1.17.7"
   },
