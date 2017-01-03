@@ -1,8 +1,8 @@
 {
   "name": "@isoden/router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "minimal router for client side.",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "start": "tsc --watch",
     "test": "ava test/",
@@ -20,7 +20,7 @@
     "ava": "^0.17.0",
     "sinon": "^1.17.7"
   },
-  "typings": "./lib/index.d.ts",
+  "types": "./lib/index.d.ts",
   "directories": {
     "test": "test"
   },
