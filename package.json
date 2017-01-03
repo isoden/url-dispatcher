@@ -5,7 +5,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "start": "tsc --watch",
-    "test": "ava test/",
+    "test": "nyc --reporter=text ava test/",
     "test:watch": "npm test -- --watch"
   },
   "keywords": [],
@@ -18,6 +18,7 @@
   "devDependencies": {
     "@types/sinon": "^1.16.34",
     "ava": "^0.17.0",
+    "nyc": "^10.0.0",
     "sinon": "^1.17.7"
   },
   "types": "./lib/index.d.ts",
