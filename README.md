@@ -2,6 +2,9 @@
 
 minimal url dispatcher for client side.
 
+[![npm (scoped)](https://img.shields.io/npm/v/@isoden/url-dispatcher.svg)](https://www.npmjs.com/package/@isoden/url-dispatcher)
+[![Coverage Status](https://coveralls.io/repos/github/isoden/url-dispatcher/badge.svg?branch=master)](https://coveralls.io/github/isoden/url-dispatcher?branch=master)
+
 ---
 
 ## Installation
