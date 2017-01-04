@@ -5,7 +5,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "start": "tsc --watch",
-    "test": "nyc --reporter=text ava test/",
+    "test": "tsc && nyc --reporter=text ava test/",
     "test:watch": "npm test -- --watch",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
